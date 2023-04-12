@@ -1,0 +1,278 @@
+body {
+	font-size: 16px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button {
+  background: #333;;
+  border: 0;
+	padding: 10px 20px;
+	color: white;
+	border-radius: 5px;
+}
+
+img { max-width: 100%; }
+
+.home-container {
+	display:grid; 
+	grid-gap: 20px
+}
+
+.hero{
+	display: grid;
+	grid-gap: 20px;
+	grid-template-areas:
+	"hero hero skate1"
+	"hero hero skate2";
+}
+
+.hero--header{
+	grid-area: hero;
+	background:white url('images/hero-skateboard.jpeg');
+	min-height: 400px;
+	background-size:cover;
+	padding: 50px;
+	display:flex;
+	flex-direction: column;
+	align-items:center;;
+	align-items: start;
+	background-position: bottom right;
+	color: black	
+}
+
+.hero--header > * {
+	background-color:white;
+	padding: 10px;
+}
+
+.cta {
+	background-color: #333;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	align-content: center;
+	color:white
+}
+
+.cta p:first-child {font-size: 20px; }
+.cta p {margin: .5rem;}
+.price {
+	font-size: 50px
+}
+
+.skate1{
+	align-items: start;
+	justify-items: start 
+}
+
+/****************MENUS*******************/
+#menu-list  {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	grid-gap: 10px  ;
+	list-style: none;
+	padding: 0;
+	text-transform: uppercase;
+	font-size:20px
+}
+
+a{
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	background-color: black;
+	color: white;
+	padding: 0.6rem;
+	border-radius: 5px;
+}
+
+
+[aria-controls="menu-list"]{
+	display: none;
+}
+
+
+/****************Grid Areas*****************/
+.skate-1 {grid-area: skate1;}
+.skate-2 {grid-area: skate2;}
+
+.features{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 20px;
+}
+
+.feature {
+	background-color: white;
+	box-shadow: 0 0 4px rgba(51, 51, 51, .4); 
+	border: 1px solid white;
+	text-align: center;
+	padding:10px;
+}
+
+.icon{
+	width:75px;
+	width:75px;
+}
+
+.feature p {
+	color: rgba(0,0,0, .5)
+}
+
+
+
+
+.learn-more, .learn-more-alt {
+	display: grid;
+}
+
+
+.learn-more h2{
+	margin-top: 0
+}
+
+.learn-more, .learn-more-alt{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap:0 40px;
+	padding: 50px;
+	align-items: center;
+}
+
+.learn-more-alt img{
+	grid-column: 2/3;
+	grid-row: 1/2
+}
+
+.learn-more-alt .about__details{
+	text-align: right;
+}
+
+.skate-gallery{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 20px;
+}
+
+.skate-gallery h2{
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	grid-column: 1/-1;
+	grid-gap: 20px;
+	align-items: center;
+}
+
+.skate-gallery h2:before, .skate-gallery h2:after{
+	display:block;
+	content:'';
+	height: 10px;
+	background: linear-gradient(to left, #333, transparent)
+}
+
+.skate-gallery h2:after{
+	background: linear-gradient(to right, #333, transparent)
+}
+
+/***********ADDING MEDIA QUERIES**********/
+/*****MUST COME LAST******/
+@media(max-width: 700px){
+	.hero{
+		grid-template-areas: 
+		"hero hero"
+		"skate1 skate2";
+	}
+
+	.hero--header{
+		min-height:300px;
+    text-align: center;
+	}
+
+	.hero--header p{
+		background-color: black;
+    color: white;
+    width: 13rem;
+    font-weight: 700;
+    padding: 10px;
+		align-items: center;
+		margin: 0 auto
+	}
+
+	.skate-1 .skate-2{
+		text-align: center;
+		align-items:center;
+	}
+
+	.skate-2 .price {
+		margin-top:2rem
+	}
+
+.about__details{
+	text-align:center;
+}
+
+	.cta p:first-child {
+	font-size: 20px;
+	text-align: center;
+	}
+
+	#menu-list{
+		font-size: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+	}
+
+	.learn-more, .learn-more-alt{
+		display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+    padding: 50px;
+    text-align: center;
+    align-items: center;
+	}
+
+	.learn-more-alt{
+		display: flex;
+    flex-direction: column;
+	}
+
+	.learn-more-alt .about__details{
+		text-align:center;
+	}
+
+	 #menu {
+		order: -1;
+		perspective: 800px
+	}
+ 
+	ul {
+		max-height: 0;
+		overflow: hidden;
+		transform: translateX(90);
+		transition: all 0.5s;
+	} 
+	
+	[aria-controls="menu-list"] {
+		display: block;
+		margin-bottom: 10px;
+	}
+	
+	[aria-expanded="true"] ~ ul {
+		display:grid;
+		max-height: 500px;
+		transform: rotateX(0);
+	}
+
+	[aria-expanded="false"] .close {
+		display: none;
+	}
+
+	[aria-expanded="true"] .close {
+		display: inline-block;
+		pointer-events: none;
+	}
+
+	[aria-expanded="true"] .open {
+		display: none;
+	} 
+}
